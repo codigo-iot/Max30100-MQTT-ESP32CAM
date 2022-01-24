@@ -1,0 +1,42 @@
+Acercarse a un nuevo contenido.
+
+1. Encontrar informacion del sensor
+	-Buscar hoja de datos del sensor
+	https://datasheets.maximintegrated.com/en/ds/MAX30100.pdf
+	
+2. Encontrar diagrama de conexion
+	-Buscar distintos diagramas de conexion
+	https://how2electronics.com/interfacing-max30100-pulse-oximeter-sensor-arduino/
+	-Conclusiones de conexion
+	Sensor		uC
+	Vin		5V
+	GND		GND
+	SDA		14	4.7kohms pull_up
+	SCL 		15	4.7kohms pull_up
+	
+3. Encontrar una biblioteca de funcionamiento
+	-Pagina del fabricante, github, en foros, en el administrador de bibliotecas del la IDE
+	-Obtenido de Spakfun en GitHub a través del gestor de bibliotecas de la IDE
+	https://github.com/sparkfun/SparkFun_MAX3010x_Sensor_Library
+
+4. Cargar ejemplo de referencia.
+	-https://github.com/hugoescalpelo/esp32cam-max30100/blob/main/esp32cam-max30100-basic_reading/esp32cam-max30100-basic_reading.ino
+	
+5. Cargar el ejemplo de aplicacion
+	-Se obtiene de la seccion de ejemplos de la biblioteca y en este caso es el programa llamado Example8_SPO2
+	-Realizar analisis del programa
+	-Hacer adaptacion del programa de ejemplo
+	
+6. Realizar la adaptación del código para funcionar con el ESP32CAM bajo el modelo estandar del IoT
+	-https://github.com/codigo-iot/ESP32CAM_MQTT-Basic/blob/main/ESP32CAM_MQTT-Basic/ESP32CAM_MQTT-Basic.ino
+	-Ajustar comentarios/documentacion
+	-Ajustar credenciales de WiFi
+	-Colocar la IP del broker MQTT a usar #ifconfig
+	-Identificar donde se envian los datos del sensor
+	-Configurar el tema en donde se va a publicar
+	
+	Adaptar programa
+	-Completar bilbiotecas
+	-Inclusion de objetos
+	-Adaptar listado de pines
+	-Configuracion de pines
