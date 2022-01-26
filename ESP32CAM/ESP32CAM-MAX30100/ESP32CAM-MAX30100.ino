@@ -203,7 +203,7 @@ void loop() {
       irBuffer[i] = particleSensor.getIR();
       particleSensor.nextSample(); //We're finished with this sample so move to next sample
 
-     Serial.print(F(", HR="));
+      Serial.print(F("HR="));
       Serial.print(heartRate, DEC);
 
       Serial.print(F(", SPO2="));
@@ -222,15 +222,16 @@ void loop() {
     timeLast = timeNow; // Actualización de seguimiento de tiempo
 
     //-----Aqui se colocan los datos del sensor a ser enviados-----
-
+    String cadenaValores = "{\"id\":\"Hugo\",\"HR\":\"" + String (heartRate) + "\",\"SPO2\":\"" + String(spo2) + "\"}";
+    Serial.println (cadenaValores);
+    //String cadenaValores = "valor1 " + otrostring + ", valor 2 ";
     //-----Aqui terminan la configuracion de los datos del sensor a enviar ---
 
     //Conversion de datos para envio MQTT
-    char dataString[8]; // Define una arreglo de caracteres para enviarlos por MQTT, especifica la longitud del mensaje en 8 caracteres
-    dtostrf(data, 1, 2, dataString);  // Esta es una función nativa de leguaje AVR que convierte un arreglo de caracteres en una variable String
-    Serial.print("Contador: "); // Se imprime en monitor solo para poder visualizar que el evento sucede
-    Serial.println(dataString);
-    client.publish("codigoIoT/SIC/sintomas", dataString); // Esta es la función que envía los datos por MQTT, especifica el tema y el valor
+    int str_len = cadenaValores.length () + 1;
+    char char_array[str_len];
+    cadenaValores.toCharArray(char_array, str_len);
+    client.publish("codigoIoT/SIC/sintomas", char_array); // Esta es la función que envía los datos por MQTT, especifica el tema y el valor
   }// fin del if (timeNow - timeLast > wait)
 }// fin del void loop ()
 
