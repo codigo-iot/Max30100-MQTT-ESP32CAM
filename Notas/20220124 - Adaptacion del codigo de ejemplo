@@ -40,3 +40,34 @@ Acercarse a un nuevo contenido.
 	-Inclusion de objetos
 	-Adaptar listado de pines
 	-Configuracion de pines
+	-Instrucciones de funcionamiento
+	-Nota: Integrar bloques funcionales uno por uno
+	-Consturccion del JSON
+	-Conversion de datos
+	-Enviar datos por MQTT	
+7. Generar un servidor del IoT
+	-Tomar los valores de MQT	
+	-Crear formulario de datos de paciente
+	-Visualizar datos del sensor
+	-Crear protodiagnostico
+	-Crear boton de diagnostico
+	-Asociar base de datos
+	
+	id, fecha, nombre, correo, hr, spo2, diagnostico
+	
+8. Crear base de datos
+	-Abrir terminal
+	-sudo mysql
+	-Crear base de datos
+		CREATE DATABASE nombre_bd;
+	-Seleccionar la base de datos
+		USE nombr_db;
+	-Crear base de datos
+		CREATE TABLE covida (id INT (6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP, correo CHAR (25), hr INT (8) NOT NULL, spo2 INT(8) NOT NULL, diagnostico CHAR (25));
+		
+	-Comandos utiles
+	-Consultar bases de datos
+		show databases;
+	-Consultar las tablas
+		show tables;
+	
