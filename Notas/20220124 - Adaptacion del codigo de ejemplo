@@ -61,13 +61,26 @@ Acercarse a un nuevo contenido.
 	-Crear base de datos
 		CREATE DATABASE nombre_bd;
 	-Seleccionar la base de datos
-		USE nombr_db;
+		USE nombre_db;
 	-Crear base de datos
-		CREATE TABLE covida (id INT (6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP, correo CHAR (25), hr INT (8) NOT NULL, spo2 INT(8) NOT NULL, diagnostico CHAR (25));
+		CREATE TABLE covida (id INT (6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP, nombre CHAR (255) NOT NULL, correo CHAR (255), hr INT (8) NOT NULL, spo2 INT(8) NOT NULL, diagnostico CHAR (255));
+	-Asegurarte de que cada valor que va a almacenarse en la base de datos esté asociado a una variable global
+	-Crear query para nodo de BD
+	
+	msg.topic="INSERT INTO covida (nombre, correo, hr, spo2, diagnostico) VALUES ('"+global.get ("nombre")+"','"+global.get ("correo")+"','"+global.get ("ritmo")+"','"+ global.get ("oxi") +"','" + global.get ("diag") +"')";
 		
 	-Comandos utiles
 	-Consultar bases de datos
 		show databases;
 	-Consultar las tablas
 		show tables;
+	-Consultar columnas;
+		describe nombre_tabla;
+	-Agregar columna a tabla
+	ALTER TABLE tabla
+	ADD COLUMN nombre_columna TIPO ORDEN;
+	https://www.mysqltutorial.org/mysql-add-column/
+	-Cambiar tipo de dato de columna
+	ALTER TABLE tabla
+	MODIFY nombre_columna TIPO;
 	
