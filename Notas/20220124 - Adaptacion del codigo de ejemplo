@@ -68,6 +68,14 @@ Acercarse a un nuevo contenido.
 	-Crear query para nodo de BD
 	
 	msg.topic="INSERT INTO covida (nombre, correo, hr, spo2, diagnostico) VALUES ('"+global.get ("nombre")+"','"+global.get ("correo")+"','"+global.get ("ritmo")+"','"+ global.get ("oxi") +"','" + global.get ("diag") +"')";
+	
+9. Crear un boton para cargar la informacion a la base de datos.
+
+10. Agregar un visualizador de grafana
+	-Para arrancar Grafana
+	sudo /bin/systemctl start grafana-server
+	-Agregar un origen de datos
+	-Agregar un nuevo panel
 		
 	-Comandos utiles
 	-Consultar bases de datos
@@ -83,4 +91,5 @@ Acercarse a un nuevo contenido.
 	-Cambiar tipo de dato de columna
 	ALTER TABLE tabla
 	MODIFY nombre_columna TIPO;
-	
+	-Consultar datos de una tabla
+	SELECT * FROM nombre_tabla;

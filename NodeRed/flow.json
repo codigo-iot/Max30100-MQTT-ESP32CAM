@@ -32,7 +32,7 @@
         "type": "debug",
         "z": "af6f1154.a6db3",
         "name": "",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -278,7 +278,8 @@
         "y": 480,
         "wires": [
             [
-                "da76aa0d.ee71"
+                "da76aa0d.ee71",
+                "cbc3a344.975a"
             ]
         ]
     },
@@ -377,14 +378,14 @@
         "type": "function",
         "z": "af6f1154.a6db3",
         "name": "",
-        "func": "\nmsg.topic=\"INSERT INTO covida (nombre, correo, hr, spo2, diagnostico) VALUES ('\"+global.get (\"nombre\")+\"','\"+global.get (\"correo\")+\"','\"+global.get (\"ritmo\")+\"','\"+ global.get (\"oxi\") +\"','\" + global.get (\"diag\") +\"')\";\nreturn msg;",
+        "func": "\nmsg.topic=\"INSERT INTO covida (nombre, correo, hr, spo2, diagnostico) VALUES ('\"+global.get (\"nombrePaciente\")+\"','\"+global.get (\"correoPaciente\")+\"','\"+global.get (\"ritmo\")+\"','\"+ global.get (\"oxi\") +\"','\" + global.get (\"diag\") +\"')\";\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 480,
-        "y": 540,
+        "y": 600,
         "wires": [
             [
                 "23e0c177.8e3fc6"
@@ -398,7 +399,95 @@
         "mydb": "5985bd1225719007",
         "name": "",
         "x": 710,
+        "y": 660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b599cc32.43e6a8",
+        "type": "e-mail",
+        "z": "af6f1154.a6db3",
+        "server": "smtp.gmail.com",
+        "port": "465",
+        "secure": true,
+        "tls": true,
+        "name": "",
+        "dname": "",
+        "x": 910,
         "y": 540,
+        "wires": []
+    },
+    {
+        "id": "1d7cde89.a3cfc9",
+        "type": "function",
+        "z": "af6f1154.a6db3",
+        "name": "",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1020,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cbc3a344.975a",
+        "type": "function",
+        "z": "af6f1154.a6db3",
+        "name": "",
+        "func": "msg.to = global.get (\"correoPaciente\");\nmsg.topic = \"Diagnostico COVID\"\nmsg.payload = msg.payload;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 540,
+        "wires": [
+            [
+                "b599cc32.43e6a8",
+                "ddec8559.f1922"
+            ]
+        ]
+    },
+    {
+        "id": "ddec8559.f1922",
+        "type": "debug",
+        "z": "af6f1154.a6db3",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 910,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "31222f7d.dc07e",
+        "type": "ui_template",
+        "z": "af6f1154.a6db3",
+        "group": "e41b49ca.4f267",
+        "name": "",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "format": "<iframe src=\"http://localhost:3000/d-solo/_3Eexux7z/sintomas-covid?orgId=1&from=1643227585792&to=1643832385792&panelId=2\" width=\"600\" height=\"400\" frameborder=\"0\"></iframe>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "x": 160,
+        "y": 640,
         "wires": [
             []
         ]
@@ -467,6 +556,16 @@
         "db": "datos",
         "tz": "",
         "charset": "UTF8"
+    },
+    {
+        "id": "e41b49ca.4f267",
+        "type": "ui_group",
+        "name": "Analisis",
+        "tab": "d4c65cac.97d228",
+        "order": 4,
+        "disp": true,
+        "width": "16",
+        "collapse": false
     },
     {
         "id": "d4c65cac.97d228",
