@@ -1,0 +1,62 @@
+Cómo borrar datos de una tabla
+
+-Tomamos como referencia el ejercicio de Java y MySQL que borra un dato.
+
+https://github.com/codigo-iot/Java-y-MySQL_Conexion_Base_De_Datos/blob/main/mysql_eliminar_datos/src/main/java/com/sic/App.java
+
+Y recupreo el siguiente comando
+
+DELETE FROM nobre_tabla WHERE id = 0;
+
+Documentacion de lenguaje MySQL
+
+https://dev.mysql.com/doc/refman/8.0/en/language-structure.html
+
+https://www.w3schools.com/mySQl/default.asp
+
+Resolver el problema de conexion con grafana
+
+-Arrancar grafana
+sudo /bin/systemctl start grafana-server
+
+-Consultar nuestras graficas
+
+-Obterener codigo de incrustación
+
+-Configurar el acceso
+
+https://grafana.com/docs/grafana/latest/auth/grafana/
+
+Detener grafana
+
+sudo /bin/systemctl stop grafana-server
+
+Comprobar grafana
+
+sudo /bin/systemctl status grafana-server
+
+Reiniciar grafana
+
+sudo /bin/systemctl restar grafana-server
+
+
+Uso del sensor MXL90614
+
+-Obtener la hoja de datos
+https://www.sparkfun.com/datasheets/Sensors/Temperature/MLX90614_rev001.pdf
+
+-Diagrama de conexion
+
+Sensor		ESP32CAM
+SDA		14
+SCL		15
+Vin		5v
+GND		GND
+
+Codigo de ejemplo
+
+https://github.com/adafruit/Adafruit-MLX90614-Library
+
+Adafruit MLX90614 Library
+
+
