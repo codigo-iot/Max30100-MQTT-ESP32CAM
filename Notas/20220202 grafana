@@ -55,8 +55,20 @@ GND		GND
 
 Codigo de ejemplo
 
-https://github.com/adafruit/Adafruit-MLX90614-Library
+	https://github.com/adafruit/Adafruit-MLX90614-Library
 
-Adafruit MLX90614 Library
+	Adafruit MLX90614 Library
+
+Adaptar el programa
+	-Integrar las distintas secciones funcionales del programa de ejemplo en el programa básico de MQTT-WiFi-ESP32CAM
+	-Adaptamos envío de información
+	
+Flow
+	-Obtencion de datos MQTT
+	-Presentación gráfica de datos
+	-Agregar base de datos
+		-Crear nueva tabla en base de datos
+		-Agregar al flow el nodo de guardado
+	-Boton de registro
 
 
